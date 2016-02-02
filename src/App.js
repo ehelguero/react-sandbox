@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, IndexRoute } from 'react-router';
 
 import ContactList from './ContactList';
 import About from './About';
+import MessageAbout from './MessageAbout';
+import AboutDetail from './AboutDetail';
+
 
 class App extends React.Component {
 	render() {
@@ -23,7 +26,10 @@ render((
 	<Router>
 		<Route path="/" component={App} >
 			<Route path="/contactlist" component={ContactList} />
-			<Route path="/about" component={About} />
+			<Route path="/about" component={About}>
+				<IndexRoute component={AboutDetail} />
+				<Route path="message/:id" component={MessageAbout} />
+			</Route>
 		</Route>
 	</Router>
 ), document.getElementById('app'))

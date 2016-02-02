@@ -5,6 +5,7 @@ class About extends React.Component{
 		return (
 			<div>
 				Pagina about
+				{this.props.children}
 			</div>
 		)
 	}
